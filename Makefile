@@ -199,7 +199,7 @@ UPROGS=\
 	$U/_touch\
 	$U/_find\
 	$U/_pingpong\
-	$U/_xargs\
+	$U/_xargs
 
 
 
