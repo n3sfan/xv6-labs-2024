@@ -194,7 +194,10 @@ UPROGS=\
 	$U/_grind\
 	$U/_wc\
 	$U/_zombie\
-	$U/_primes
+	$U/_primes\
+	$U/_sleep\
+	$U/_touch\
+	$U/_find\
 
 
 
