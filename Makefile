@@ -198,6 +198,8 @@ UPROGS=\
 	$U/_sleep\
 	$U/_touch\
 	$U/_find\
+	$U/_pingpong\
+	$U/_xargs\
 
 
 
