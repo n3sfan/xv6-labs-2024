@@ -38,7 +38,8 @@ void sieve(int lpipe[]) {
             }
         }
         close(lpipe[0]);  
-        close(rpipe[1]);   
+        close(rpipe[1]); 
+        wait(0);  
     }
 }
 

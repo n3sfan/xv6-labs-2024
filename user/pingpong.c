@@ -17,7 +17,7 @@ int main()
         close(fd1[1]);
         read(fd1[0], &byte_received, 1);
         if (byte_received == '.')
-            printf("%d: Received ping\n", getpid());
+            printf("%d: received ping\n", getpid());
         else 
         {
             printf("%d: Failed to received ping\n", getpid());
@@ -39,7 +39,7 @@ int main()
 
         read(fd2[0], &byte_received, 1);
         if (byte_received == '.')
-            printf("%d: Recieved pong\n", getpid());
+            printf("%d: received pong\n", getpid());
         else 
             printf("%d: Failed to received pong\n", getpid());
         close(fd2[0]);
@@ -47,5 +47,5 @@ int main()
         wait(0);
     }
 
-    return 0;
+    exit(0);
 }
