@@ -7,6 +7,12 @@
 
 int main(int argc, char* argv[])
 {
+    if (argc - 1 >= MAXARG)
+    {
+        write(2, "Error: Too many arguments!", 26);
+        exit(1);
+    }
+    
     char buffer[MAXBUF];
     char *args[MAXARG];
 
@@ -14,7 +20,8 @@ int main(int argc, char* argv[])
         args[i] = argv[i + 1];
     
     int i = argc - 1, index = 0;
-    while (i < MAXARG - 1 && read(0, buffer + index, 1) == 1)
+
+    while (index < MAXBUF && read(0, buffer + index, 1) == 1)
     {
         if (buffer[index] == '\n')
         {
