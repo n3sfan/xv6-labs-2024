@@ -1,15 +1,15 @@
 #include "kernel/types.h"
 #include "kernel/stat.h"
+#include "kernel/param.h"
 #include "user/user.h"
 
-#define MAXARG 32
 #define MAXBUF 512
 
 int main(int argc, char* argv[])
 {
     if (argc - 1 >= MAXARG)
     {
-        write(2, "Error: Too many arguments!", 26);
+        fprintf(2, "Error: Too many arguments!");
         exit(1);
     }
     
