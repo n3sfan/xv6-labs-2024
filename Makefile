@@ -200,7 +200,7 @@ UPROGS=\
 	$U/_find\
 	$U/_pingpong\
 	$U/_xargs\
-	$U/_lmao
+	$U/_sysinfotest
 
 
 

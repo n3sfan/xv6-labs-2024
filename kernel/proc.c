@@ -693,3 +693,19 @@ procdump(void)
     printf("\n");
   }
 }
+
+
+uint64 getnproc() {
+  struct proc *p;
+  uint64 count = 0;
+
+  acquire(&pid_lock); // Dùng pid_lock thay vì ptable.lock
+  for (p = proc; p < &proc[NPROC]; p++) {
+      if (p->state != UNUSED) {
+          count++;
+      }
+  }
+  release(&pid_lock);
+
+  return count;
+}
