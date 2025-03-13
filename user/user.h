@@ -42,3 +42,10 @@ void *memcpy(void *, const void *, uint);
 // umalloc.c
 void* malloc(uint);
 void free(void*);
+
+// sysinfo 
+struct sysinfo {
+    uint64 freemem;
+    uint64 nproc;
+};
+int sysinfo(struct sysinfo *);

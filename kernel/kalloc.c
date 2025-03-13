@@ -91,3 +91,16 @@ kalloc(void)
   return (void*)r;
 }
 
+uint64 getfreemem() {
+    struct run *r;
+    uint64 free_memory = 0;
+
+    acquire(&kmem.lock);
+    for (r = kmem.freelist; r; r = r->next) {
+        free_memory += PGSIZE; // Mỗi trang có kích thước PGSIZE (4096 bytes)
+    }
+    release(&kmem.lock);
+
+    return free_memory;
+}
+

@@ -6,6 +6,7 @@
 #include "proc.h"
 #include "syscall.h"
 #include "defs.h"
+extern uint64 sys_sysinfo(void);
 
 // Fetch the uint64 at addr from the current process.
 int
@@ -128,6 +129,7 @@ static uint64 (*syscalls[])(void) = {
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
 [SYS_trace]   sys_trace,
+[SYS_sysinfo] sys_sysinfo,
 };
 
 char *syscall_names[] = {
@@ -153,6 +155,7 @@ char *syscall_names[] = {
   [SYS_mkdir]   = "mkdir",
   [SYS_close]   = "close",
   [SYS_trace]   = "trace", 
+  [SYS_sysinfo] = "sysinfo",
 };
 
 void
@@ -178,3 +181,4 @@ syscall(void)
 
   if (p->traced & (1 << num)) printf("%d: syscall %s -> %d\n", p->pid, syscall_names[num], return_value); //ME
 }
+

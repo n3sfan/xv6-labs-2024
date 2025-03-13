@@ -5,6 +5,8 @@
 #include "memlayout.h"
 #include "spinlock.h"
 #include "proc.h"
+#include "sysinfo.h"
+
 
 uint64
 sys_exit(void)
@@ -101,4 +103,20 @@ sys_trace(void)
 
   p->traced = mask;
   return 0;
+}
+
+extern uint64 getfreemem();  // Hàm sẽ được thêm vào kernel/kalloc.c
+extern uint64 getnproc(); // Hàm sẽ được thêm vào kernel/proc.c
+
+int sys_sysinfo(void) {
+  struct sysinfo si;
+  si.freemem = getfreemem();
+  si.nproc = getnproc();
+
+  uint64 addr;
+  argaddr(0, &addr);  // Không kiểm tra trực tiếp giá trị trả về
+  if (addr == 0) {    // Kiểm tra hợp lệ
+      return -1;
+  }
+  return copyout(myproc()->pagetable, addr, (char*)&si, sizeof(si));
 }
