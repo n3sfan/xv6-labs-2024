@@ -7,7 +7,6 @@
 #include "proc.h"
 #include "sysinfo.h"
 
-
 uint64
 sys_exit(void)
 {
