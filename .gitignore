@@ -14,7 +14,7 @@ kernelmemfs
 mkfs/mkfs
 kernel/kernel
 user/usys.S
-.gdbinit
+.gdbinit*
 *.zip
 xv6.out*
 .vagrant/
@@ -26,3 +26,4 @@ barrier
 *.dSYM
 *.pcap
 **/.vscode/**
+*.patch

@@ -44,8 +44,5 @@ void* malloc(uint);
 void free(void*);
 
 // sysinfo 
-struct sysinfo {
-    uint64 freemem;
-    uint64 nproc;
-};
+struct sysinfo;
 int sysinfo(struct sysinfo *);

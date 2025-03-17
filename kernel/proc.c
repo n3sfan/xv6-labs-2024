@@ -306,7 +306,7 @@ fork(void)
   np->trapframe->a0 = 0;
   
   //Copy traced 
-  np->traced = np->traced;
+  np->traced = p->traced;
 
   // increment reference counts on open file descriptors.
   for(i = 0; i < NOFILE; i++)
